@@ -30,8 +30,13 @@ repositories {
 
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("org.springframework.boot:spring-boot-starter-test") 
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.springframework.boot:spring-boot-starter-social-twitter'
+    compile 'org.webjars:materializecss:0.97.0'
+    compile 'org.webjars:jquery:2.1.4'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 
@@ -43,5 +48,5 @@ eclipse {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    gradleVersion = '2.7'
 }
