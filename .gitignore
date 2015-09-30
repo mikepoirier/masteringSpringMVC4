@@ -4,4 +4,6 @@
 
 #gradle
 /.gradle
+/pictures/*
+!*.gitkeep
 build
