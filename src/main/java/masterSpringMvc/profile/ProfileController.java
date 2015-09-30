@@ -1,6 +1,7 @@
 package masterSpringMvc.profile;
 
 import masterSpringMvc.date.USLocalDateFormatter;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -38,7 +39,7 @@ public class ProfileController
         return "profile/profilePage";
     }
 
-    @RequestMapping(value = "/profile", params = {"save"}, method = RequestMethod.POST)
+    @RequestMapping(value = "/profile", params = {"update"}, method = RequestMethod.POST)
     public String saveProfile(@Valid ProfileForm profileForm, BindingResult bindingResult)
     {
         if(bindingResult.hasErrors())
@@ -47,7 +48,7 @@ public class ProfileController
         }
 
         userProfileSession.saveForm(profileForm);
-        return "redirect:/profile";
+        return "redirect:/search/mixed;keywords=" + StringUtils.join(profileForm.getTastes(), ",");
     }
 
     @RequestMapping(value = "/profile", params = {"addTaste"})
