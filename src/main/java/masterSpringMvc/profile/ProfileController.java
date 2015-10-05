@@ -39,7 +39,7 @@ public class ProfileController
         return "profile/profilePage";
     }
 
-    @RequestMapping(value = "/profile", params = {"update"}, method = RequestMethod.POST)
+    @RequestMapping(value = "/profile", params = {"save"}, method = RequestMethod.POST)
     public String saveProfile(@Valid ProfileForm profileForm, BindingResult bindingResult)
     {
         if(bindingResult.hasErrors())

@@ -31,8 +31,11 @@ repositories {
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE'
+    compile 'org.springframework.boot:spring-boot-actuator:1.2.5.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf:1.2.5.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-social-twitter:1.2.5.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-security:1.2.5.RELEASE'
+    compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.2.RELEASE'
     compile 'org.webjars:materializecss:0.97.0'
     compile 'org.webjars:jquery:2.1.4'
     compile 'org.apache.commons:commons-lang3:3.4'
@@ -40,7 +43,6 @@ dependencies {
     compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.6.1'
     testCompile 'org.springframework.boot:spring-boot-starter-test:1.2.5.RELEASE'
 }
-
 
 eclipse {
     classpath {
