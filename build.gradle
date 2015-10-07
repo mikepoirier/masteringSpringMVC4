@@ -45,21 +45,34 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-social-twitter:1.2.5.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-security:1.2.5.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-redis:1.2.5.RELEASE'
+    testCompile 'org.springframework.boot:spring-boot-starter-test:1.2.5.RELEASE'
+
     compile 'org.springframework.session:spring-session:1.0.2.RELEASE'
+
     compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity3:2.1.2.RELEASE'
+
     compile 'org.webjars:materializecss:0.97.0'
     compile 'org.webjars:jquery:2.1.4'
+
     compile 'org.apache.commons:commons-lang3:3.4'
+
     compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.1'
     compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.6.1'
+
     compile 'com.jayway.jsonpath:json-path:2.0.0'
-    testCompile 'org.springframework.boot:spring-boot-starter-test:1.2.5.RELEASE'
+
     testCompile 'org.assertj:assertj-core:3.1.0'
+
     testCompile 'org.fluentlenium:fluentlenium-assertj:0.10.3'
+
     testCompile 'com.codeborne:phantomjsdriver:1.2.1'
+
     testCompile 'org.seleniumhq.selenium:selenium-java:2.47.1'
+
     testCompile 'org.codehaus.groovy:groovy-all:2.4.4:indy'
+
     testCompile 'org.spockframework:spock-spring:1.0-groovy-2.4'
+
     testCompile 'org.gebish:geb-spock:0.12.2'
 }
 
