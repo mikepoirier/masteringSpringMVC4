@@ -14,12 +14,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.formLogin()
-				.defaultSuccessUrl("/profile")
-				.and()
-				.logout().logoutSuccessUrl("/login")
-				.and()
-				.authorizeRequests()
-				.antMatchers("/webjars/**", "/login").permitAll()
-				.anyRequest().authenticated();
+		    .loginPage("/login")
+		    .defaultSuccessUrl("/profile")
+		    .and()
+		    .logout().logoutSuccessUrl("/login")
+		    .and()
+		    .authorizeRequests()
+		    .antMatchers("/webjars/**", "/login", "/signin/**", "/signup").permitAll()
+		    .anyRequest().authenticated();
 	}
 }

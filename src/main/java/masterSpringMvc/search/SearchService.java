@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * Created by blindweasel on 9/29/15.
  */
 @Service
-public class SearchService
+public class SearchService implements TwitterSearch
 {
     private Twitter twitter;
 
