@@ -18,7 +18,7 @@ public class UserRepository
 
     public User update(String email, User user) throws EntityNotFoundException
     {
-        if(exists(email))
+        if(!exists(email))
         {
             throw new EntityNotFoundException(String.format("User %s cannot be found.", email));
         }
@@ -57,5 +57,14 @@ public class UserRepository
     public boolean exists(String email)
     {
         return userMap.containsKey(email);
+    }
+
+    public void reset(User... users)
+    {
+	    userMap.clear();
+	    for(User user : users)
+	    {
+		    save(user);
+	    }
     }
 }

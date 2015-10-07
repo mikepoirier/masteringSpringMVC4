@@ -1,4 +1,4 @@
-package masterSpringMvc;
+package masterSpringMvc.utils;
 
 import masterSpringMvc.profile.UserProfileSession;
 import org.springframework.mock.web.MockHttpSession;

@@ -11,7 +11,7 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot' 
@@ -28,6 +28,15 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    testCompile {
+        exclude module: 'selenium-safari-driver'
+        exclude module: 'selenium-ie-driver'
+        //exclude module: 'selenium-firefox-driver'
+        exclude module: 'selenium-htmlunit-driver'
+        exclude module: 'selenium-chrome-driver'
+    }
+}
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE'
@@ -43,7 +52,15 @@ dependencies {
     compile 'org.apache.commons:commons-lang3:3.4'
     compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.1'
     compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.6.1'
+    compile 'com.jayway.jsonpath:json-path:2.0.0'
     testCompile 'org.springframework.boot:spring-boot-starter-test:1.2.5.RELEASE'
+    testCompile 'org.assertj:assertj-core:3.1.0'
+    testCompile 'org.fluentlenium:fluentlenium-assertj:0.10.3'
+    testCompile 'com.codeborne:phantomjsdriver:1.2.1'
+    testCompile 'org.seleniumhq.selenium:selenium-java:2.47.1'
+    testCompile 'org.codehaus.groovy:groovy-all:2.4.4:indy'
+    testCompile 'org.spockframework:spock-spring:1.0-groovy-2.4'
+    testCompile 'org.gebish:geb-spock:0.12.2'
 }
 
 eclipse {
@@ -55,4 +72,22 @@ eclipse {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.7'
+}
+
+configurations {
+    integrationTestCompile.extendsFrom testCompile
+    integrationTestRuntime.extendsFrom testRuntime
+}
+
+sourceSets {
+    integrationTest {
+        compileClasspath += main.output + test.output
+        runtimeClasspath += main.output + test.output
+    }
+}
+
+task integrationTest(type: Test) {
+    testClassesDir = sourceSets.integrationTest.output.classesDir
+    classpath = sourceSets.integrationTest.runtimeClasspath
+    reports.html.destination = file("${reporting.baseDir}/integrationTests")
 }
